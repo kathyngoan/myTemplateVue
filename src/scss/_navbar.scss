@@ -1,0 +1,35 @@
+// Lock scroll body when menu mobile toogled
+.lock-scroll {
+    overflow: hidden;
+  }
+  //Main menu
+  header {
+    &+main {
+        padding-top: $navbar-height;
+    }
+    &.scrolled {
+      background: $maincolor;
+      animation: smoothScroll 1s forwards;
+    }
+    @keyframes smoothScroll {
+      0% {
+        transform: translateY(-40px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    .navbar  {
+        &.navbar-light {
+            .navbar-brand {
+                img {
+                    width: 100%;
+                    height: $logo-height;
+                }
+            }
+        }
+    }
+  
+  }
+
+

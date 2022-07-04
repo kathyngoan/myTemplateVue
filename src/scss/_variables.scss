@@ -1,0 +1,190 @@
+// Override Bootstrap default variables here
+// Do not edit any of the files in /vendor/bootstrap/scss/!
+
+// Color Variables
+// Bootstrap Color Overrides
+
+$white: #fff !default;
+$gray-100: #f8f9fc !default;
+$gray-200: #eaecf4 !default;
+$gray-300: #dddfeb !default;
+$gray-400: #d1d3e2 !default;
+$gray-500: #b7b9cc !default;
+$gray-600: #858796 !default;
+$gray-700: #6e707e !default;
+$gray-800: #5a5c69 !default;
+$gray-900: #252f39 !default;
+$black: #000 !default;
+
+$blue: #4e73df !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #e74a3b !default;
+$orange: #fd7e14 !default;
+$yellow: #f6c23e !default;
+$green: #90c535 !default;
+$teal: #20c9a6 !default;
+$cyan: #36b9cc !default;
+
+$brand-google: #ea4335;
+$brand-facebook: #3b5998;
+
+
+// Project Colors
+$maincolor: #0e1a25;
+$activecolor: $green;
+$subcolor: #fae7d9;
+$inactivecolor: #3980c3;
+
+
+// Project Typography
+$typo-primary: Roboto,sans-serif;
+$typo-secondary: "Roboto"; 
+$typo-spacing-2: 3px;
+$typo-spacing-3: 6px;
+
+
+// Copyright (CPR) Element
+$CPRBackgroundcolor: #80837f;
+$CPRfontsize: 0.7rem;
+$CPRcolor: $white;
+$CPRfontfamyly:  $typo-primary;
+$CPRfontweight: 400;
+
+
+//Overwrite default variable
+$primary:       $maincolor !default;
+$secondary:     $subcolor !default;
+$success:       $activecolor !default;
+$info:          $inactivecolor !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+
+
+// Set Contrast Threshold
+$yiq-contrasted-threshold: 195 !default;
+
+
+
+// [Typography]
+//
+$body-color: $gray-600 !default;
+$font-family-sans-serif: $typo-primary !default;
+
+$font-weight-light: 300 !default;
+// $font-weight-base: 400;
+$headings-font-weight: 400 !default;
+
+$headings-font-family: $typo-secondary;
+//$headings-font-weight: 
+//$headings-line-height:
+$h6-font-size: .9rem;
+$h7-font-size: 0.8rem;
+$h1-font-size: 4rem;
+
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg:                   $white;
+$body-color:                $maincolor;
+
+$container-max-widths-xxl: 1420px;
+
+//Header Element
+$logo-width : 200px;
+$logo-height : 80px;
+
+/*#region Navbar*/
+$navbar-height: 100px;
+$navbar-height-mobile: 65px;
+$navbar-padding-y: 0.75rem;
+//$navbar-padding-x: ;
+$navbar-nav-link-padding-x: 2rem;
+$navbar-font-size: 26px;
+
+$height-body: calc(100vh - #{$navbar-height} + 1px);
+$height-body-mobile: calc(100vh - #{$navbar-height-mobile} + 1px);
+
+$navbar-light-color: rgba($secondary, 0.8);
+$navbar-light-hover-color: rgba($secondary, 1);
+$navbar-light-active-color: $secondary;
+
+// Shadows
+$box-shadow-sm: 0 0.125rem 0.25rem 0 rgba($gray-900, .2) !default;
+$box-shadow: 0px 7px 20px rgba($black, .6) !default;
+// $box-shadow-lg: 0 1rem 3rem rgba($black, .175) !default;
+
+
+
+// Borders Radius
+$border-radius: 0 !default;
+$border-color: darken($gray-200, 2%);
+
+
+
+//FORM + INPUT
+$input-font-family: $typo-primary;
+$input-color: $black;
+$input-bg: $white;
+$input-border-color: $white;
+$input-border-width: 0;
+$input-placeholder-color: $black;
+$input-font-size:0.8rem;
+$input-padding-y:0.7rem;
+$input-padding-x: 1rem;
+
+
+// Spacing Variables
+// Change below variable if the height of the navbar changes
+$topbar-base-height: 4.375rem;
+// Change below variable to change the width of the sidenav
+$sidebar-base-width: 14rem;
+// Change below variable to change the width of the sidenav when collapsed
+$sidebar-collapsed-width: 6.5rem;
+
+
+
+// Card
+$card-cap-bg: $gray-100;
+$card-border-color: $border-color;
+
+
+// Adjust column spacing for symmetry
+$spacer: 1rem;
+$grid-gutter-width: $spacer * 1.5;
+
+
+
+// Transitions
+$transition-collapse: height .15s ease !default;
+
+
+
+// Dropdowns
+$dropdown-font-size: 0.85rem;
+$dropdown-border-color: $border-color;
+
+
+
+// Navbar
+$navbar-padding-y: .5rem;
+//$navbar-padding-x: ;
+$navbar-nav-link-padding-x: 1.3rem;
+$navbar-light-color: $black;
+$navbar-light-hover-color: rgba($activecolor, .8);
+$navbar-light-active-color: $activecolor;
+//$navbar-light-disabled-color:;
+
+
+// Button 
+$btn-font-weight: 500;
+$btn-padding-y: 0.8rem;
+$btn-padding-x: 1rem;
+$btn-font-size: 0.9rem;
+$btn-line-height:1.2;
+//$btn-border-radius:;

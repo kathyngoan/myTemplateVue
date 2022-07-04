@@ -1,0 +1,13 @@
+footer {
+  line-height: 34px;
+  a {
+    color: $white;
+    &:hover {
+      color: $yellow;
+    
+    }
+  }
+  .icon {
+    max-width: 20px;
+  }
+}
