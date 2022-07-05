@@ -6,7 +6,14 @@
                 <p>Animated element using zoom-in.</p>
             </div>
             <div>
-                <BButton variant="primary">Test</BButton>
+                <!-- Using modifiers -->
+                <b-button v-b-modal.my-modal>Show Modal</b-button>
+
+                <!-- Using value -->
+                <b-button v-b-modal="'my-modal'">Show Modal</b-button>
+
+                <!-- The modal -->
+                <b-modal id="my-modal">Hello From My Modal!</b-modal>
             </div>
         </div>
 
@@ -14,6 +21,15 @@
 </main>
 </template>
 
+<script>
+export default {
+    methods: {
+
+    }
+}
+</script>
+
 <style>
+
 
 </style>
