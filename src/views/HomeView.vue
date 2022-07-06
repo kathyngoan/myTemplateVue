@@ -79,16 +79,17 @@
             </div>
 
             <div class="newsHome px-4 py-5" id="custom-cards" data-aos="fade-up" data-aos-once="true">
-                <h2 class="pb-2 border-bottom">Custom cards</h2>
+                <h2 class="pb-2 border-bottom">Show data local by json</h2>
 
-                <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 d-none">
+                <!-- Show data local by json -->
+                <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                     <div class="col" v-for="item in vm" :key="item.id">
-                        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{item.url}});">
+                        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" :style="'background: url(' + item.url + ')'">
                             <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                                 <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{item.title}}</h2>
                                 <ul class="d-flex list-unstyled mt-auto">
                                     <li class="me-auto">
-                                        <img src="https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                                        <img :src="item.url" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
                                     </li>
                                     <li class="d-flex align-items-center me-3">
                                         <svg class="bi me-2" width="1em" height="1em">
@@ -108,8 +109,8 @@
             </div>
 
             <div class="newsHome px-4 py-5" id="custom-cards" data-aos="fade-up" data-aos-once="true">
-                <h2 class="pb-2 border-bottom">Custom cards</h2>
-
+                <h2 class="pb-2 border-bottom">Show data api by axios api (hidding by d-none class)</h2>
+                <!-- Show data api by axios api -->
                 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 d-none">
                     <div class="col" v-for="item in vm" :key="item.id">
                         <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg');">
@@ -230,45 +231,45 @@ export default {
                     "userId": 1,
                     "id": 1,
                     "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-                    "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg');",
+                    "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg",
                     "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
                 },
                 {
                     "userId": 1,
                     "id": 2,
                     "title": "qui est esse",
-                    "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg');",
+                    "url": "https://wallpaperaccess.com/thumb/123112.jpg",
                     "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
                 },
                 {
                     "userId": 1,
                     "id": 3,
-                    "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-                    "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg');",
+                    "title": "",
+                    "url": "https://www.fonewalls.com/wp-content/uploads/Dont-Touch-Scary-Lock-Screen-Wallpaper-1080x2340--300x585.jpg",
                     "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
                 },
                 {
                     "userId": 1,
                     "id": 4,
                     "title": "eum et est occaecati",
-                    "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg');",
+                    "url": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/products/2019/5/21/4/rx_etsy_botanical-removable-wallpaper.jpeg.rend.hgtvcom.616.770.suffix/1558466297164.jpeg",
                     "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
                 }
             ]  
         };
     },
     methods: {
-        getdataLocal() {
+        getdataLocal() {// Function to Show data local by json
             let self = this;
             self.vm = self.dataLocal;
-            console.log('ddd', this.vm);
+            console.log('Data Local', this.vm);
         },
-        getList() {
+        getList() { //Function to Show data api by axios api
             let api = "https://jsonplaceholder.typicode.com/posts";
             let self = this;
             this.axios.get(api).then((response) => {
                 self.vm = response.data;
-                console.log("data is:", self.vm);
+                console.log("Data API is:", self.vm);
             })
             // or
             // this.$http.get(api).then((response) => {
@@ -283,8 +284,8 @@ export default {
     },
     mounted() {
         console.log("mounted");
-        this.getdataLocal();
-        //this.getList();
+        this.getdataLocal();// Call Function to Show data local by json
+        //this.getList(); //Call Function to Show data api by axios api
     }
 }
 </script>
