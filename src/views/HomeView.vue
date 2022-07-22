@@ -86,7 +86,7 @@
                     <div class="col" v-for="item in vm" :key="item.id">
                         <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" :style="'background: url(' + item.url + ')'">
                             <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{item.title}}</h2>
+                                <h2 @click="notic()" class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{item.title}}</h2>
                                 <ul class="d-flex list-unstyled mt-auto">
                                     <li class="me-auto">
                                         <img :src="item.url" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -255,11 +255,14 @@ export default {
                     "url": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/products/2019/5/21/4/rx_etsy_botanical-removable-wallpaper.jpeg.rend.hgtvcom.616.770.suffix/1558466297164.jpeg",
                     "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
                 }
-            ]  
+            ]
         };
     },
     methods: {
-        getdataLocal() {// Function to Show data local by json
+        notic() {
+            alert('Wating update link to detai');
+        },
+        getdataLocal() { // Function to Show data local by json
             let self = this;
             self.vm = self.dataLocal;
             console.log('Data Local', this.vm);
@@ -284,7 +287,7 @@ export default {
     },
     mounted() {
         console.log("mounted");
-        this.getdataLocal();// Call Function to Show data local by json
+        this.getdataLocal(); // Call Function to Show data local by json
         //this.getList(); //Call Function to Show data api by axios api
     }
 }
