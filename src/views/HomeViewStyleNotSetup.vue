@@ -220,138 +220,75 @@
 <style>
 </style>
 
-<script setup lang="ts">
-import { inject, ref, watch, onBeforeMount, onMounted } from "vue";
-import axios from "axios";
-const msg = ref("booo");
-const vm = ref([] as any) ;
-const dataLocal = ref([
-        {
-            "userId": 1,
-            "id": 1,
-            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-            "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg",
-            "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+<script>
+export default {
+    name: 'home-view',
+    data() {
+        return {
+            msg: "booo",
+            vm: {},
+            dataLocal: [{
+                    "userId": 1,
+                    "id": 1,
+                    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                    "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg",
+                    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+                },
+                {
+                    "userId": 1,
+                    "id": 2,
+                    "title": "qui est esse",
+                    "url": "https://wallpaperaccess.com/thumb/123112.jpg",
+                    "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+                },
+                {
+                    "userId": 1,
+                    "id": 3,
+                    "title": "",
+                    "url": "https://www.fonewalls.com/wp-content/uploads/Dont-Touch-Scary-Lock-Screen-Wallpaper-1080x2340--300x585.jpg",
+                    "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+                },
+                {
+                    "userId": 1,
+                    "id": 4,
+                    "title": "eum et est occaecati",
+                    "url": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/products/2019/5/21/4/rx_etsy_botanical-removable-wallpaper.jpeg.rend.hgtvcom.616.770.suffix/1558466297164.jpeg",
+                    "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
+                }
+            ]
+        };
+    },
+    methods: {
+        notic() {
+            alert('Wating update link to detail');
         },
-        {
-            "userId": 1,
-            "id": 2,
-            "title": "qui est esse",
-            "url": "https://wallpaperaccess.com/thumb/123112.jpg",
-            "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+        getdataLocal() { // Function to Show data local by json
+            let self = this;
+            self.vm = self.dataLocal;
+            console.log('Data Local', this.vm);
         },
-        {
-            "userId": 1,
-            "id": 3,
-            "title": "",
-            "url": "https://www.fonewalls.com/wp-content/uploads/Dont-Touch-Scary-Lock-Screen-Wallpaper-1080x2340--300x585.jpg",
-            "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
-        },
-        {
-            "userId": 1,
-            "id": 4,
-            "title": "eum et est occaecati",
-            "url": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/products/2019/5/21/4/rx_etsy_botanical-removable-wallpaper.jpeg.rend.hgtvcom.616.770.suffix/1558466297164.jpeg",
-            "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
+        getList() { //Function to Show data api by axios api
+            let api = "https://jsonplaceholder.typicode.com/posts";
+            let self = this;
+            this.axios.get(api).then((response) => {
+                self.vm = response.data;
+                console.log("Data API is:", self.vm);
+            })
+            // or
+            // this.$http.get(api).then((response) => {
+            //     self.vm = response.data;
+            //     console.log(response.data)
+            // })
         }
-    ]);
-const notic = () => {
-    alert('Wating update link to detail');
-};
-const getdataLocal = () => { // Function to Show data local by json
-    vm.value = dataLocal.value;
-    console.log('Data Local', vm.value);
-};
-const getList = () =>  { //Function to Show data api by axios api
-    let api = "https://jsonplaceholder.typicode.com/posts";
-    // axios.get(api).then((response) => {
-    //     vm.value = response.data;
-    //     console.log("Data API is:", vm.value);
-    // })
-    // or
-    axios.get(api).then((response) => {
-        vm.value = response.data;
-        console.log(vm.value)
-    })
-};
+    },
+    beforeMount() {
+        console.log("before");
 
-onBeforeMount(() => {
-    console.log("before");
-});
-onMounted(()=> {
-    console.log("mounted");
-    getdataLocal(); // Call Function to Show data local by json
-    //getList(); //Call Function to Show data api by axios api
-});
-
-// export default {
-//     name: 'home-view',
-//     data() {
-//         return {
-//             msg: "booo",
-//             vm: {},
-//             dataLocal: [{
-//                     "userId": 1,
-//                     "id": 1,
-//                     "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-//                     "url": "https://p4.wallpaperbetter.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-thumb.jpg",
-//                     "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-//                 },
-//                 {
-//                     "userId": 1,
-//                     "id": 2,
-//                     "title": "qui est esse",
-//                     "url": "https://wallpaperaccess.com/thumb/123112.jpg",
-//                     "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-//                 },
-//                 {
-//                     "userId": 1,
-//                     "id": 3,
-//                     "title": "",
-//                     "url": "https://www.fonewalls.com/wp-content/uploads/Dont-Touch-Scary-Lock-Screen-Wallpaper-1080x2340--300x585.jpg",
-//                     "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
-//                 },
-//                 {
-//                     "userId": 1,
-//                     "id": 4,
-//                     "title": "eum et est occaecati",
-//                     "url": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/products/2019/5/21/4/rx_etsy_botanical-removable-wallpaper.jpeg.rend.hgtvcom.616.770.suffix/1558466297164.jpeg",
-//                     "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
-//                 }
-//             ]
-//         };
-//     },
-//     methods: {
-//         notic() {
-//             alert('Wating update link to detail');
-//         },
-//         getdataLocal() { // Function to Show data local by json
-//             let self = this;
-//             self.vm = self.dataLocal;
-//             console.log('Data Local', this.vm);
-//         },
-//         getList() { //Function to Show data api by axios api
-//             let api = "https://jsonplaceholder.typicode.com/posts";
-//             let self = this;
-//             this.axios.get(api).then((response) => {
-//                 self.vm = response.data;
-//                 console.log("Data API is:", self.vm);
-//             })
-//             // or
-//             // this.$http.get(api).then((response) => {
-//             //     self.vm = response.data;
-//             //     console.log(response.data)
-//             // })
-//         }
-//     },
-//     beforeMount() {
-//         console.log("before");
-
-//     },
-//     mounted() {
-//         console.log("mounted");
-//         this.getdataLocal(); // Call Function to Show data local by json
-//         //this.getList(); //Call Function to Show data api by axios api
-//     }
-// }
+    },
+    mounted() {
+        console.log("mounted");
+        this.getdataLocal(); // Call Function to Show data local by json
+        //this.getList(); //Call Function to Show data api by axios api
+    }
+}
 </script>
