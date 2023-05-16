@@ -18,22 +18,22 @@ export default {
                 <ul class="list-unstyled list-inline py-4">
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="icon" src="@/assets/images/youtube_white.svg" alt="">
+                            <img class="icon" src="./../assets/images/youtube_white.svg" alt="">
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="icon" src="@/assets/images/instagram_white.svg" alt="">
+                            <img class="icon" src="./../assets/images/instagram_white.svg" alt="">
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="icon" src="@/assets/images/facebook_white.svg" alt="">
+                            <img class="icon" src="./../assets/images/facebook_white.svg" alt="">
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="icon" src="@/assets/images/twitter_white.svg" alt="">
+                            <img class="icon" src="./..//assets/images/twitter_white.svg" alt="">
                         </a>
                     </li>
                 </ul>

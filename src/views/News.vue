@@ -117,7 +117,7 @@
             </div><!-- /.container -->
         </div>
         <div>
-            <BButton variant="primary">Test</BButton>
+            <Button variant="primary">Test</Button>
         </div>
     </div>
 </main>

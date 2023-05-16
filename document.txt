@@ -1,0 +1,8 @@
+Link bootstrap icon: https://icons.getbootstrap.com/
+Install: yarn add bootstrap-icons
+Add css: import 'bootstrap-icons/font/bootstrap-icons.css'
+
+
+https://bootstrap-vue.org/docs
+
+https://vuejs.org/examples

@@ -1,14 +1,3 @@
-<script>
-export default {
-    name: "HeaderComponent",
-    props: {
-        msg: String,
-    },
-    data: () => ({}),
-    methods: {},
-}
-</script>
-
 <template>
 <header class="fixed-top">
     <div class="container">
@@ -40,8 +29,10 @@ export default {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown09">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <RouterLink class="dropdown-item" to="/emit">Emit</RouterLink>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Vee Validate</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
@@ -55,3 +46,16 @@ export default {
     </div>
 </header>
 </template>
+<script>
+export default {
+    name: "HeaderComponent", 
+    props: {
+        msg: String,
+    },
+    data: () => ({}),
+    methods: {
+
+    },
+}
+</script>
+
